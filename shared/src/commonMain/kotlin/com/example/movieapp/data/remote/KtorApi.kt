@@ -8,7 +8,7 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
 private const val BASE_URL ="https://api.themoviedb.org"
-private const val API_KEY ="eaa0f27c7e2bbd9065ed712320b37616"
+private const val API_KEY =""
 internal abstract class KtorApi {
     val client = HttpClient{
         install(ContentNegotiation){
