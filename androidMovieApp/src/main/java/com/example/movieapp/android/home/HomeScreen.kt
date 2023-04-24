@@ -1,5 +1,6 @@
 package com.example.movieapp.android.home
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -44,6 +45,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             itemsIndexed(uiState.movies, key = { _, movie -> movie.id }) { index, movie ->
+                Log.e("home Screen", "$index _ $movie" )
                 MovieListItem(movie = movie, onMovieClick = { navigateToDetail(movie) })
 
                 if (index >= uiState.movies.size - 1 && !uiState.loading && !uiState.loadFinished) {

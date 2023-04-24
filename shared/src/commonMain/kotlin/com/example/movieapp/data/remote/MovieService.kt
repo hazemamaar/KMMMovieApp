@@ -5,15 +5,15 @@ import io.ktor.client.request.*
 
 internal class MovieService :KtorApi() {
     companion object{
-        private const val MOVIES="movies/popular"
-        private const val MOVIE="movies/"
+        private const val MOVIES="movie/popular"
+        private const val MOVIE="movie/"
     }
-    suspend fun getMovies(page:Int =1 ):MoviesResponse =client.get {
-        pathUrl(MOVIES)
-        parameter("page",page)
+    suspend fun getMovies(page: Int = 1): MoviesResponse = client.get {
+        pathUrl("movie/popular")
+        parameter("page", page)
     }.body()
 
-    suspend fun getMovie(movieId:Int) :MovieRemote= client.get {
-        pathUrl(MOVIE+movieId)
+    suspend fun getMovie(movieId: Int): MovieRemote = client.get {
+        pathUrl("movie/${movieId}")
     }.body()
 }

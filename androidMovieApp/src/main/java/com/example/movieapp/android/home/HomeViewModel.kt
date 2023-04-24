@@ -1,5 +1,6 @@
 package com.example.movieapp.android.home
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -10,11 +11,17 @@ import com.example.movieapp.domain.usecase.GetMoviesUseCase
 import kotlinx.coroutines.launch
 
 class HomeViewModel(val getMoviesUseCase: GetMoviesUseCase) : ViewModel() {
+
     var uiState by mutableStateOf(HomeScreenState())
     private var currentPage = 1
+
     init {
+
+
         loadMovies(forceReload = false)
+
     }
+
     fun loadMovies(forceReload: Boolean = false) {
         if (uiState.loading) return
         if (forceReload) currentPage = 1

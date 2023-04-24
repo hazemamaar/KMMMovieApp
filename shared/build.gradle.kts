@@ -86,3 +86,6 @@ android {
         minSdk = 24
     }
 }
+dependencies {
+    implementation("org.chromium.net:cronet-embedded:98.4758.101")
+}

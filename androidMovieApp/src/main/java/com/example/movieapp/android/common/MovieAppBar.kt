@@ -14,20 +14,22 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun MovieAppBar(
     modifier: Modifier = Modifier,
-    canNavigateBck: Boolean,
+    canNavigateBack: Boolean,
     currentScreen: Destination,
-    onNavigateBack: () -> Unit,
+    onNavigateBack: () -> Unit
 ) {
     Surface(
         modifier = modifier
-            .fillMaxSize()
-            .height(56.dp), elevation = 4.dp, color = MaterialTheme.colors.primary
+            .fillMaxWidth()
+            .height(56.dp),
+        elevation = 4.dp,
+        color = MaterialTheme.colors.primary
     ) {
         Row(
             modifier = modifier.padding(start = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AnimatedVisibility(visible = canNavigateBck) {
+            AnimatedVisibility(visible = canNavigateBack) {
                 IconButton(onClick = onNavigateBack) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
@@ -36,13 +38,14 @@ fun MovieAppBar(
                     )
                 }
                 Spacer(modifier = modifier.width(24.dp))
-                Text(
-                    text = currentScreen.title,
-                    style = MaterialTheme.typography.h6,
-                    modifier = modifier.padding(12.dp),
-                    color = MaterialTheme.colors.onSurface
-                )
             }
+
+            Text(
+                text = currentScreen.title,
+                style = MaterialTheme.typography.h6,
+                modifier = modifier.padding(12.dp),
+                color = MaterialTheme.colors.onSurface
+            )
         }
     }
 }
